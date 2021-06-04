@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-auto" max-width="450">
+  <v-card class="mx-auto" max-width="400">
     <v-tabs centered v-model="tab">
       <v-tab v-for="item in items" :key="item.tab">{{ item.tab }}</v-tab>
     </v-tabs>

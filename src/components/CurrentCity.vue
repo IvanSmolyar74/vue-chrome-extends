@@ -10,12 +10,7 @@
           date | date("datetime", false)
         }}</v-list-item-subtitle>
       </v-list-item-content>
-      <v-col
-        align-self="start"
-        justify="end"
-        cols="auto"
-        class="grey--text caption"
-      >
+      <v-col cols="auto" class="grey--text caption">
         <v-icon>mdi-account-group</v-icon>
         {{ city.population | format() }}
       </v-col>

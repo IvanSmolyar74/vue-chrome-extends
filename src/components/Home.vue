@@ -1,7 +1,8 @@
 <template>
-  <v-card class="mx-auto" max-width="400">
+  <v-card class="mx-auto" min-width="400" height="100%">
     <v-tabs centered v-model="tab">
       <v-tab v-for="item in items" :key="item.tab">{{ item.tab }}</v-tab>
+      <v-switch v-model="$vuetify.theme.dark" class="ml-auto mr-0"></v-switch>
     </v-tabs>
     <v-tabs-items v-model="tab">
       <CurrentCity :city="getCity" v-if="getCity" />

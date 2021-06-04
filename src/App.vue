@@ -1,6 +1,8 @@
 <template>
   <v-app style="my-app">
-    <Home />
+    <v-theme-provider root>
+      <Home />
+    </v-theme-provider>
   </v-app>
 </template>
 

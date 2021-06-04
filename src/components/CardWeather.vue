@@ -6,11 +6,11 @@
         cols="6"
         >{{ data.temp.day | round() }}&deg;C</v-col
       >
-      <v-col cols="6" class="pl-14">
+      <v-col cols="6">
         <v-img
           :src="`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`"
+          lazy-src="`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`"
           alt="Sunny image"
-          width="100"
         ></v-img>
       </v-col>
       <v-col cols="6" class="text-center"

@@ -58,7 +58,6 @@ export default {
   components: {
     CurrentWearher,
     CurrentCity,
-    // HourlyWheather: () => import("@/components/HourlyWheather.vue"),
   },
 };
 </script>

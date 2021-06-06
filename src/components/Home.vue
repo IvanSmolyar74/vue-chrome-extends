@@ -2,7 +2,11 @@
   <v-card class="mx-auto" min-width="400" height="100%">
     <v-tabs centered v-model="tab">
       <v-tab v-for="item in items" :key="item.tab">{{ item.tab }}</v-tab>
-      <v-switch v-model="$vuetify.theme.dark" class="ml-auto mr-0"></v-switch>
+      <v-switch
+        v-model="theme"
+        @change="changeTheme"
+        class="ml-auto mr-0"
+      ></v-switch>
     </v-tabs>
     <v-tabs-items v-model="tab">
       <CurrentCity :city="getCity" v-if="getCity" />
@@ -31,6 +35,7 @@ export default {
   data: () => ({
     loading: true,
     tab: null,
+    theme: false,
     items: [
       { id: "0", tab: "Сейчас", content: "CurrentWearher" },
       { id: "1", tab: "Завтра", content: "CurrentWearher" },
@@ -44,15 +49,24 @@ export default {
     getDay() {
       return (id) => this.daily[id];
     },
+    getCurrentTheme() {
+      return JSON.parse(localStorage.getItem("isDarkTheme"));
+    },
   },
   methods: {
     ...mapActions(["getWeather"]),
+    changeTheme() {
+      this.$vuetify.theme.dark = this.theme;
+      localStorage.setItem("isDarkTheme", this.theme);
+    },
   },
   created() {
     this.getWeather();
   },
   mounted() {
     navigator.geolocation.watchPosition(this.getWeather);
+    this.theme = this.getCurrentTheme;
+    this.$vuetify.theme.dark = this.theme;
   },
   components: {
     CurrentWearher,

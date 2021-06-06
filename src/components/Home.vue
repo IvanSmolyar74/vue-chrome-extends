@@ -49,13 +49,15 @@ export default {
     getDay() {
       return (id) => this.daily[id];
     },
+    getCurrentTheme() {
+      return JSON.parse(localStorage.getItem("isDarkTheme"));
+    },
   },
   methods: {
     ...mapActions(["getWeather"]),
     changeTheme() {
-      const currentTheme = this.theme ? "dark" : "light";
       this.$vuetify.theme.dark = this.theme;
-      localStorage.setItem("theme", currentTheme);
+      localStorage.setItem("isDarkTheme", this.theme);
     },
   },
   created() {
@@ -63,6 +65,8 @@ export default {
   },
   mounted() {
     navigator.geolocation.watchPosition(this.getWeather);
+    this.theme = this.getCurrentTheme;
+    this.$vuetify.theme.dark = this.theme;
   },
   components: {
     CurrentWearher,

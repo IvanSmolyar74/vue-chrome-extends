@@ -1,0 +1,21 @@
+name: Test
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+       node-version: [12.x]
+    steps:
+      - users: actions/checkout@v2
+      - users: actions/setup_node@v1
+        with:
+          node-version: ${{ mtrix.node-version }}
+      - run: npm ci
+      - npm: test

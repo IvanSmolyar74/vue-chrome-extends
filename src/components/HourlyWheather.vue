@@ -1,17 +1,23 @@
 <template>
   <v-expansion-panels multipl min-width="400">
-    <v-expansion-panel v-for="(hour,i) in formatingHourly" :key="i">
-      <v-expansion-panel-header class="d-flex align-start justify-space-between pt-0 pb-0">
+    <v-expansion-panel v-for="(hour, i) in formatingHourly" :key="i">
+      <v-expansion-panel-header
+        class="d-flex align-start justify-space-between pt-0 pb-0"
+      >
         <div d-flex flex-column>
-          <v-row class="subtitle-2">{{ hour.dt | date('time') }}</v-row>
-          <v-row
-            class="caption"
-            v-for="item in hour.weather"
-            :key="item.id"
-          >{{ item.description | text()}}</v-row>
+          <v-row class="subtitle-2">{{ hour.dt | date("time") }}</v-row>
+          <v-row class="caption" v-for="item in hour.weather" :key="item.id">{{
+            item.description | text()
+          }}</v-row>
         </div>
-        <div class="d-flex align-center justify-end" v-for="item in hour.weather" :key="item.id">
-          <div class="caption p-0" style="color:#03A9F4">{{ hour.pop * 100 }}%</div>
+        <div
+          class="d-flex align-center justify-end"
+          v-for="item in hour.weather"
+          :key="item.id"
+        >
+          <div class="caption p-0" style="color: #03a9f4">
+            {{ hour.pop * 100 }}%
+          </div>
           <v-img
             :src="`http://openweathermap.org/img/wn/${item.icon}@2x.png`"
             alt="Sunny image"
@@ -39,7 +45,7 @@
             </tr>
             <tr class="caption">
               <td class="grey--text">Давление</td>
-              <td class="pl-4">{{ hour.pressure}} мм.рт.ст</td>
+              <td class="pl-4">{{ hour.pressure }} мм.рт.ст</td>
             </tr>
           </table>
         </v-simple-table>

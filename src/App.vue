@@ -1,9 +1,9 @@
 <template>
-  <v-app style="my-app">
-    <v-theme-provider root>
+  <v-theme-provider root>
+    <v-app style="my-app">
       <Home />
-    </v-theme-provider>
-  </v-app>
+    </v-app>
+  </v-theme-provider>
 </template>
 
 <script>

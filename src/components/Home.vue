@@ -34,7 +34,6 @@ export default {
     items: [
       { id: "0", tab: "Сейчас", content: "CurrentWearher" },
       { id: "1", tab: "Завтра", content: "CurrentWearher" },
-      // { tab: "На неделю", content: "HourlyWheather" },
     ],
   }),
   computed: {
